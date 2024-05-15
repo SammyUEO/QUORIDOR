@@ -16,8 +16,7 @@ function setup() {
   p2 = new Player(floor(cols / 2), rows - 1, color("beige")); // Jucătorul bej
   currentPlayer = p1; // Jucătorul turcoaz începe
   
-  // Initializează zidurile
-  // Inițial nu sunt ziduri plasate
+ 
 }
 
 function draw() {
