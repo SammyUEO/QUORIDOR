@@ -6,7 +6,7 @@ let walls = []; // Pozițiile zidurilor
 let board; // Obiectul pentru tablă
 
 function setup() {
-  createCanvas(800,800);
+  createCanvas(1000, 700);
   
   // Initializează tabla
   board = new Board(cols, rows);
