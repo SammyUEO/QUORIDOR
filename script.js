@@ -26,10 +26,10 @@ function draw() {
   // Desenează cercul maro în spatele tablei
   fill(110, 60, 19); // Maro închis
   noStroke();
-  ellipse(width /2, height / 2, cellSize * (cols + 5));
+  ellipse(width / 2, height / 2, cellSize * (cols + 5));
 
   // Center the board within the circle
-  translate(width/3.65, height/3.65);
+  translate(width / 3.1, height / 4);
   
   // Desenează tabla de joc (celule, ziduri, jucători)
   board.display();
@@ -41,17 +41,14 @@ function draw() {
   
   // Verifică condiția de câștig
   if (p1.y === rows - 1) {
-    alert("Jucătorul roșu a câștigat!");
-    noLoop();
+    noLoop(); // Oprește desenarea
+    alert("Jucătorul turcoaz a câștigat!");
+    
   } else if (p2.y === 0) {
-    alert("Jucătorul albastru a câștigat!");
-    noLoop();
+    noLoop(); // Oprește desenarea
+    alert("Jucătorul bej a câștigat!");
+    
   }
+  
+  
 }
-
-
-
-
-
-
-
