@@ -37,6 +37,7 @@ function draw() {
   }
   p1.display();
   p2.display();
+ 
   
   // Verifică condiția de câștig
   if (p1.y === rows - 1) {
