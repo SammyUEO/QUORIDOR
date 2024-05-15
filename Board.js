@@ -3,11 +3,12 @@ class Board {
     constructor(bCols, bRows) {
       this.cols = bCols;
       this.rows = bRows;
+      
     }
   
     display() {
-      
-        // Desenează celulele
+
+        // desenare de celule
       for (let i = 0; i < this.cols; i++) {
         for (let j = 0; j < this.rows; j++) {
           let x = i * cellSize;
@@ -19,4 +20,3 @@ class Board {
       }
     }
   }
-  
