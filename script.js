@@ -12,19 +12,19 @@ function setup() {
   board = new Board(cols, rows);
   
   // Initializează jucătorii
-  p1 = new Player(floor(cols / 2), 0, color(255, 0, 0)); // Jucătorul roșu
-  p2 = new Player(floor(cols / 2), rows - 1, color(0, 0, 255)); // Jucătorul albastru
-  currentPlayer = p1; // Jucătorul roșu începe
+  p1 = new Player(floor(cols / 2), 0, color("cyan")); // Jucătorul turcoaz
+  p2 = new Player(floor(cols / 2), rows - 1, color("beige")); // Jucătorul bej
+  currentPlayer = p1; // Jucătorul turcoaz începe
   
   // Initializează zidurile
   // Inițial nu sunt ziduri plasate
 }
 
 function draw() {
-  background(255);
+  background(150);
 
   // Desenează cercul maro în spatele tablei
-  fill(139, 69, 19); // Maro
+  fill(110, 60, 19); // Maro închis
   noStroke();
   ellipse(width /2, height / 2, cellSize * (cols + 5));
 
