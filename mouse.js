@@ -1,8 +1,7 @@
 function mousePressed() {
-    
     // Obține coordonatele absolute ale mouse-ului, în raport cu canvas-ul
-    let absMouseX = mouseX - width / 3.65;
-    let absMouseY = mouseY - height / 3.65;
+  let absMouseX = mouseX - width / 3.1;
+  let absMouseY = mouseY - height / 4;
   
     if (currentPlayer === p1 || currentPlayer === p2) {
       
