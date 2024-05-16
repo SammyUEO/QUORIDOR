@@ -38,11 +38,11 @@ function draw() {
   
   // Verifică condiția de câștig
   if (p1.y === rows - 1) {
-    noLoop(); // Oprește desenarea
+    noLoop(); 
     alert("Jucătorul turcoaz a câștigat!");
     
   } else if (p2.y === 0) {
-    noLoop(); // Oprește desenarea
+    noLoop();
     alert("Jucătorul bej a câștigat!");
     
   }
