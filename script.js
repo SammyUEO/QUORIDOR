@@ -30,11 +30,8 @@ function draw() {
   // Center the board within the circle
   translate(width / 3.1, height / 4);
   
-  // Desenează tabla de joc (celule, ziduri, jucători)
+  // Desenează tabla de joc, jucătorii
   board.display();
-  for (let wall of walls) {
-    wall.display();
-  }
   p1.display();
   p2.display();
  
