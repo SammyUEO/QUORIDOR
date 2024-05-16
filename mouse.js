@@ -12,7 +12,7 @@ function mousePressed() {
       // Verifică dacă clicul a fost făcut în interiorul tablei de joc
       if (i >= 0 && i < cols && j >= 0 && j < rows) {
         
-        // Verifică dacă celula pe care s-a făcut clic este goală și adiacentă jucătorului curent
+        // Verifică dacă celula pe care s-a făcut clic este goală și folositoare pentru jucătorului curent
         if ((i === currentPlayer.x && abs(j - currentPlayer.y) === 1) || (j === currentPlayer.y && abs(i - currentPlayer.x) === 1)) {
           
             // Mută jucătorul la noua poziție
