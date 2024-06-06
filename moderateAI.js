@@ -30,20 +30,3 @@ function backtrackMove(x, y, depth) {
   }
   return null;
 }
-
-
-function showPossibleMoves() {
-  let absMouseX = mouseX - width / 3.1;
-  let absMouseY = mouseY - height / 4;
-
-  if (absMouseX < 0 || absMouseY < 0 || absMouseX > cols * cellSize || absMouseY > rows * cellSize) return;
-
-  let i = floor(absMouseX / cellSize);
-  let j = floor(absMouseY / cellSize);
-
-  if (currentPlayer.validMove(i, j)) {
-    fill(0, 255, 0, 100);
-    noStroke();
-    rect(i * cellSize, j * cellSize, cellSize, cellSize);
-  }
-}
