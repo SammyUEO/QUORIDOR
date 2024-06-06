@@ -86,17 +86,23 @@ function isWallBetween(x1, y1, x2, y2) {
 }
 
 function showPossibleMoves() {
+  // Calculează poziția relativă a mouse-ului în cadrul tablei de joc
   let absMouseX = mouseX - width / 3.1;
   let absMouseY = mouseY - height / 4;
 
+  // Verifică dacă mouse-ul este în afara limitelor tablei
   if (absMouseX < 0 || absMouseY < 0 || absMouseX > cols * cellSize || absMouseY > rows * cellSize) return;
 
+  // Calculează indicele celulei în care se află mouse-ul
   let i = floor(absMouseX / cellSize);
   let j = floor(absMouseY / cellSize);
 
+  // Verifică dacă jucătorul curent poate face o mișcare validă către celula respectivă
   if (currentPlayer.validMove(i, j)) {
-    fill(0, 255, 0, 100);
-    noStroke();
-    rect(i * cellSize, j * cellSize, cellSize, cellSize);
+    // Dacă mișcarea este validă, desenează un dreptunghi semi-transparent pentru a indica celula posibilă
+    fill(0, 255, 0, 100);  // Culoare verde cu transparență
+    noStroke();            // Fără contur
+    rect(i * cellSize, j * cellSize, cellSize, cellSize);  // Desenează dreptunghiul
   }
 }
+
