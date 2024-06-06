@@ -31,6 +31,7 @@ function backtrackMove(x, y, depth) {
   return null;
 }
 
+
 function showPossibleMoves() {
   let absMouseX = mouseX - width / 3.1;
   let absMouseY = mouseY - height / 4;
