@@ -1,17 +1,18 @@
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Quoridor</title>
     <script src="script.js"></script>
     <script src="p5.min.js"></script>
-   <script src="Board.js"></script>
-   <script src="Player.js"></script>
-   <script src="Wall.js"></script>
-   <script src="mouse.js"></script>
-   <script src="resetGame.js"></script>
-   <script src="randomAI.js"></script>
-   <script src="moderateAI.js"></script>
+    <script src="Board.js"></script>
+    <script src="Player.js"></script>
+    <script src="Wall.js"></script>
+    <script src="mouse.js"></script>
+    <script src="resetGame.js"></script>
+    <script src="randomAI.js"></script>
+    <script src="moderateAI.js"></script>
 </head>
 <style>
     body {
@@ -25,35 +26,37 @@
         padding: 10px 20px;
         font-size: 16px;
         border-radius: 5px;
-        margin-right: 10px; 
+        margin-right: 10px;
     }
 
-    .box1{
-    background-color: rgb(30, 211, 218);
-    margin-top: 5px;
-    margin-bottom: 5px;
-    width: 200px;
-    height: 30px;
-    border-radius: 16px;
-    border-style: hidden;
+    .box1 {
+        background-color: rgb(30, 211, 218);
+        margin-top: 5px;
+        margin-bottom: 5px;
+        width: 200px;
+        height: 30px;
+        border-radius: 16px;
+        border-style: hidden;
     }
 
-    .box2{
-    background-color: rgb(226, 227, 232);
-    margin-bottom: 5px;
-    width: 200px;
-    height: 30px;
-    border-radius: 16px;
-    border-style: hidden;
+    .box2 {
+        background-color: rgb(226, 227, 232);
+        margin-bottom: 5px;
+        width: 200px;
+        height: 30px;
+        border-radius: 16px;
+        border-style: hidden;
 
-}
+    }
 </style>
 </head>
+
 <body>
 
     <button onclick="resetGame()">Reset</button>
     <div class="center name1"><input class="box1" type="name" name="Whats your name?" placeholder="Player 1"></div>
     <div class="center name2"><input class="box2" type="name" name="Whats your name?" placeholder="Player 2"></div>
-</div>
+    </div>
 </body>
+
 </html>
