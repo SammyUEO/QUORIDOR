@@ -3,7 +3,8 @@ let cellSize = 40;
 let p1, p2, currentPlayer;
 let board;
 let walls = [];
-let mode = 'human-human'; // implicit este jucător-jucător
+let mode = 'human-human'; // modul implicit
+let placingWall = false;
 
 function setup() {
   createCanvas(1000, 700);
@@ -26,44 +27,36 @@ function draw() {
   }
   checkWin();
 
+  // Afișare a cui e rândul
+  fill(currentPlayer.color);
+  noStroke();
+  textSize(20);
+  textAlign(CENTER);
+  text("Current Turn: " + (currentPlayer === p1 ? "Player 1" : "Player 2"), width / 6, height - 840);
+
   // AI Move
   if (mode === 'human-computer' && currentPlayer === p2) {
-    aiMoveEasy(); // Schimbați la aiMoveModerate() pentru mod moderat
+    aiMoveEasy(); // Schimbare mod de joc AI
   }
+
+  // Afișează mișcările posibile
+  showPossibleMoves();
 }
 
 function createButtons() {
   let humanHumanButton = createButton('Human vs Human');
-  humanHumanButton.position(250, 10);
+  humanHumanButton.position(350, 10);
   humanHumanButton.mousePressed(() => mode = 'human-human');
 
   let humanComputerButton = createButton('Human vs Computer');
-  humanComputerButton.position(250, 60);
+  humanComputerButton.position(350, 60);
   humanComputerButton.mousePressed(() => mode = 'human-computer');
+
+  let placeWallButton = createButton('Place Wall');
+  placeWallButton.position(600, 60);
+  placeWallButton.mousePressed(() => placingWall = !placingWall);
 }
 
-function resetGame() {
-  p1 = new Player(floor(cols / 2), 0, color("cyan"));
-  p2 = new Player(floor(cols / 2), rows - 1, color("beige"));
-  currentPlayer = p1;
-}
-
-function mousePressed() {
-  let absMouseX = mouseX - width / 3.1;
-  let absMouseY = mouseY - height / 4;
-
-  if (currentPlayer === p1 || (mode === 'human-human' && currentPlayer === p2)) {
-    let i = floor(absMouseX / cellSize);
-    let j = floor(absMouseY / cellSize);
-
-    if (i >= 0 && i < cols && j >= 0 && j < rows) {
-      if (currentPlayer.validMove(i, j)) {
-        currentPlayer.move(i, j);
-        currentPlayer = (currentPlayer === p1) ? p2 : p1;
-      }
-    }
-  }
-}
 function checkWin() {
   if (p1.y === rows - 1) {
     noLoop();
@@ -71,5 +64,39 @@ function checkWin() {
   } else if (p2.y === 0) {
     noLoop();
     alert("Jucătorul bej a câștigat!");
+  }
+}
+
+
+// Funcție pentru verificarea mișcărilor valide ale jucătorilor
+function validMove(x1, y1, x2, y2) {
+  return ((x2 === x1 && abs(y2 - y1) === 1) || (y2 === y1 && abs(x2 - x1) === 1)) &&
+         !board.isWallBetween(x1, y1, x2, y2);
+}
+
+// Funcție pentru verificarea prezenței zidurilor între două poziții
+function isWallBetween(x1, y1, x2, y2) {
+  for (let wall of walls) {
+    if ((wall.x1 === x1 && wall.y1 === y1 && wall.x2 === x2 && wall.y2 === y2) ||
+        (wall.x1 === x2 && wall.y1 === y2 && wall.x2 === x1 && wall.y2 === y1)) {
+      return true;
+    }
+  }
+  return false;
+}
+
+function showPossibleMoves() {
+  let absMouseX = mouseX - width / 3.1;
+  let absMouseY = mouseY - height / 4;
+
+  if (absMouseX < 0 || absMouseY < 0 || absMouseX > cols * cellSize || absMouseY > rows * cellSize) return;
+
+  let i = floor(absMouseX / cellSize);
+  let j = floor(absMouseY / cellSize);
+
+  if (currentPlayer.validMove(i, j)) {
+    fill(0, 255, 0, 100);
+    noStroke();
+    rect(i * cellSize, j * cellSize, cellSize, cellSize);
   }
 }
