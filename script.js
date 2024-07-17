@@ -36,7 +36,7 @@ function draw() {
 
   // AI Move
   if (mode === 'human-computer' && currentPlayer === p2) {
-    aiMoveEasy(); // Schimbare mod de joc AI
+    aiMoveModerate(); // Schimbare mod de joc AI
   }
 
   // Afișează mișcările posibile
